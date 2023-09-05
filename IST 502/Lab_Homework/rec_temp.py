@@ -1,68 +1,111 @@
 # return the number of times c occurs in s, e.g.,
 # number_c("a", "ababccaad") -> 4
 def number_c(c, s):
-    # fill me in
-
-    return None
+        count = 0
+        if len(s) == 0:
+                return 0
+        else:
+                if s[0] == c:
+                        count = 1
+                return count + number_c(c, s[1:])
 
 
 # return the number of chars in s that are not c, e.g.,
 # number_not_c("a", "ababccaad") -> 5
 def number_not_c(c, s):
-    # fill me in
-
-    return None
+        count = 0
+        if len(s) == 0:
+                return 0
+        else:
+                if s[0] != c:
+                        count = 1
+                return count + number_not_c(c, s[1:])
 
 
 # return a copy of s but with all occurrences of c replaced by d, e.g.,
 # replace("abeabe", 'e', '$') -> "ab$ab$"
 # you are not allowed to use any Python libraries
 def replace(s, c, d):
-    # fill me in
-
-    return None
+        if len(s) == 0:
+                return ""
+        else:
+                if s[0] == c:
+                        return d + replace(s[1:], c, d)
+                else:
+                        return s[0] + replace(s[1:], c, d)
 
 
 # return a copy of s with char_to_remove removed, e.g.,
 # remove_char("abeabe", 'e') -> "abab"
 # you are not allowed to use any Python libraries
 def remove_char(s, char_to_remove):
-    # fill me in
-
-    return None
+        if len(s) == 0:
+                return ""
+        else:
+                if s[0] == char_to_remove:
+                        return remove_char(s[1:], char_to_remove) # remove the char
+                else:
+                        return s[0] + remove_char(s[1:], char_to_remove) # keep the char
 
 
 # return a copy of s with characters in reverse order, e.g.,
 # reverse("abcdefg") = "gfedcab"
 def reverse(s):
-    # fill me in
-
-    return None
+        if len(s) == 0:
+                return ""
+        else:
+                return s[-1] + reverse(s[:-1]) 
 
 
 # return a copy of s with adjacent duplicates removed, e.g.,
 # rem1("abbcccdeaaa") -> "abcdea"
 def rem1(s):
-    # fill me in
+        if len(s) == 0:
+                return ""
+        else:
+                if len(s) == 1:
+                        return s[0]
+                else:
+                        if s[0] == s[1]:
+                                return rem1(s[1:]) # remove duplicate
+                        else:
+                                return s[0] + rem1(s[1:]) # keep the char
 
-    return None
 
 # return the number of the digits in the decimal representation of n, e.g.,
 # num_digits(0) -> 1, num_digits(34) -> 2, num_digits(1356) -> 4
 # Precondition: n >= 0
 def num_digits(n):
-    # fill me in
+    if n < 10:
+            return 1
+    else:
+            return 1 + num_digits(n // 10)
 
-    return None
+    # count = 0
+    # if len(str(n)) == 0:
+    #         return 0
+    # else:
+    #         count = 1
+    #         return count + num_digits(str(n)[1:])
+    
 
 
 # return the sum of the digits in the decimal representation of n, e.g.,
 # sum_digits(0) -> 0, sum_digits(3) -> 3, sum_digits(345) -> 12
 # Precondition: n >= 0
 def sum_digits(n):
-    # fill me in
+    if n < 10:
+            return n
+    else:
+            return n % 10 + sum_digits(n // 10)
 
-    return None
+
+    # sum = 0
+    # if len(str(n)) == 0:
+    #         return 0
+    # else:
+    #         sum = int(str(n)[0])  #Cast string to int 
+    #         return sum + sum_digits(str(n)[1:])
 
 print("number_c")
 print(number_c('a', "aaabbbaccabda"))
