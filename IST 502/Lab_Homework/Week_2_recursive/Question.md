@@ -6,7 +6,7 @@
 
 2. Write a recursive function:
 
-```
+```txt
 def pascal(n);
 
 that accepts an integer argument and prints out a Pascal triangle of depth n. For example, a call to:
@@ -29,7 +29,7 @@ Save your work in a file named ${\color{yellow}pascal.py}$
 
 3. Write a recursive function ${\color{yellow}ruler.py}$ that draws the scale marks of a vertical ruler using dash “-” symbol. The middle mark should be the longest and mark the 1⁄2 way point, slightly shorter marks should mark the 1⁄4 way points, even slightly shorter marks should mark the 1⁄8 way points and so on. The function should take one argument: the height of the middle scale mark (i.e. the number of dashes). Example:
 
-```
+```txt
 ruler(1)    ruler(2)    ruler(3)
   -           -           -
               --          --

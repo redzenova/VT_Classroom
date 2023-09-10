@@ -25,12 +25,12 @@ def ruler(n):
 
 
 # Test cases
-ruler(1)
-print()
-ruler(2)
-print()
-ruler(3)
-print()
+# ruler(1)
+# print()
+# ruler(2)
+# print()
+# ruler(3)
+# print()
 ruler(4)
-print()
-ruler(5)
+# print()
+# ruler(5)

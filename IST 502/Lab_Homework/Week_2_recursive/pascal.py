@@ -41,6 +41,11 @@ def pascal(depth):
 
 
 # Test cases
+
+#print(pascal_line(3))
+#print(pascal_line(5))
+#print(pascal_line(5))
+
 pascal(1)
 print()
 pascal(2)
