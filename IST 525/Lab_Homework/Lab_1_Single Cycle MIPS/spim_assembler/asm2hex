@@ -20,7 +20,7 @@ cmd = [SPIM, "-noexception", "-assemble", "-file", fasm]
 subprocess.call(cmd)
 
 # Rename the SPIM output file to have a more descriptice name
-cmd = ["mv", fhex, re.sub('\.s.out$', '.text.dat', fhex)]
+cmd = ["mv", fhex, re.sub('\.s.out$', '.x', fhex)]
 subprocess.call(cmd)
 
 # remove all other files
