@@ -7,6 +7,7 @@ def comb(n, r):
         return 1
     return comb(n-1, r-1) + comb(n-1, r)
 
+
 def pascal(n):
     if n == 1:
         print(str(comb(0, 0)))
@@ -16,5 +17,6 @@ def pascal(n):
     for i in range(n):
         s += str(comb(n-1, i)) + " "
     print(s)
+
 
 pascal(5)
