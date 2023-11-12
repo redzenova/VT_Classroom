@@ -47,6 +47,6 @@ turtle.hideturtle()
 
 # Initial size and the smallest size for the squares
 initial_size = 200
-draw_fractal_square(turtle, initial_size, 0, 0, 4)
+draw_fractal_square(turtle, initial_size, 0, 0, 5)
 
 turtle.done()
