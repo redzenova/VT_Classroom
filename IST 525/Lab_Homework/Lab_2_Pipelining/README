@@ -1,0 +1,151 @@
+# Class assignment
+
+IST 525 Computer Architecture
+2330803-Raweeroj Thongdee
+
+## Submit
+
+#### Lab 1
+
+- assignment 1.1 in directory "Assign_1.1" (done)
+- assignment 1.1 in directory "src/sim.c" (done)
+
+#### Lab 2
+
+- assignment 2 in directory "src/pipe.h"
+- assignment 2 in directory "src/pipe.c"
+
+### Files
+
+1. "src/" subdirectory
+
+- The shell: "shell.h", "shell.c" (DO NOT MODIFY)
+- The simulator skeleton: "sim.c" (MODIFY)
+
+2. "inputs/" subdirectory
+
+- Test inputs for the simulator (MIPS assembly code): "\*.s"
+- MIPS assembler/hexdump (assembly code -> machine code -> hexdump): "asm2hex"
+
+### Instructions
+
+1. Modify "sim.c" to implement the MIPS instruction set specified in the lab
+   handout. Run "make" to compile the simulator.
+
+```bash
+$ cd src/
+$ make
+```
+
+You should now have an executable file named "sim".
+
+2. Use "asm2hex" to convert the test inputs ("_.s") into hexdumps of assembled
+   machine code ("_.x").
+
+```bash
+$ cd inputs/
+$ ./asm2hex addiu.s
+```
+
+You should now have a hexdump of the assembled machine code "addiu.x". Repeat
+this step for the rest of the test inputs.
+
+3. Run the hexdump in the simulator.
+
+```bash
+$ src/sim inputs/addiu.x
+
+>> MIPS Simulator
+>>
+>> Read 7 words from program into memory.
+>>
+>> MIPS-SIM> go
+>>
+>> Simulating...
+```
+
+Right now, the simulator will become unresponsive because it has not been
+implemented yet (that is your job!). Press Control+C to exit the simulator.
+
+### MIPS Shell and Sim
+
+Complie
+
+```
+ cd src
+ make clean
+ make
+ exec ./sim
+```
+
+Shell command
+
+```
+  go                    - run program to completion
+  run n                 - execute program for n instrs
+  mdump low high        - dump memory from low to high
+  rdump                 - dump the register & bus value
+  input reg_num reg_val - set GPR reg_num to reg_val
+  high value            - set the HI register to value
+  low value             - set the LO register to value
+  ?                     - display this help menu
+  quit                  - exit the program
+```
+
+### Support MIPS Instruction
+
+```
+J
+JAL
+BEQ
+BNE
+BLEZ
+BGTZ
+ADDI
+ADDIU
+SLTI
+SLTIU
+ANDI
+ORI
+XORI
+LUI
+LB
+LH
+LW
+LBU
+LHU
+SB
+SH
+SW
+BLTZ
+BGEZ
+BLTZAL
+BGEZAL
+SLL
+SRL
+SRA
+SLLV
+SRLV
+SRAV
+JR
+JALR
+ADD
+ADDU
+SUB
+SUBU
+AND
+OR
+XOR
+NOR
+SLT
+SLTU
+MULT
+MFHI
+MFLO
+MTHI
+MTLO
+MULTU
+DIV
+DIVU
+SYSCALL
+```
