@@ -30,6 +30,9 @@ int main(int argc, char const* argv[]) {
   /* Create TCP socket */
   // Use the socket function to create a socket for TCP communication.
   // sock_fd = socket(...);
+
+  sock_fd = socket(AF_INET, SOCK_STREAM, 0);
+
   if (sock_fd < 0) {
     printf("Error creatinging socket\n");
     exit(1);
@@ -39,15 +42,23 @@ int main(int argc, char const* argv[]) {
   // Set address family, IP address, and port number to server_addr
   // that will be used to identify the server address.
   // Hint: Check server_addr's structure
-  // Hint: Host vs network byte order  
+  // Hint: Host vs network byte order 
+  server_addr.sin_family = AF_INET;
+  server_addr.sin_addr.s_addr = inet_addr(server_ip);
+  server_addr.sin_port = htons(server_port); 
 
 
   /* Connect to TCP server */
   // Connect to a server identified by server_addr
   // conn_stats = connect(...);
+
+  conn_status = connect(sock_fd, (struct sockaddr *)&server_addr, sizeof(server_addr));
+
   if ( conn_status < 0 ) {
     printf("Error connecting to TCP server\n");
     exit(1);
+  } else {
+    printf("Connected to TCP server\n");
   }
 
   /* Open VISTEC.txt */
@@ -58,13 +69,24 @@ int main(int argc, char const* argv[]) {
   }
 
   /* Send messages through socket using send(...) command */
+
+  printf("Sending file to server\n");
+
   while (fgets(buffer, MAX_LINE_LENGTH, fptr) != NULL) {
     // send(...);
+    if(send(sock_fd, buffer, strlen(buffer), 0) == -1){
+      printf("Error sending message\n");
+      exit(1);
+    }
+    bzero(buffer, MAX_LINE_LENGTH);
   }
   
   /* Close socket & file */
   // close(...);
   fclose(fptr);
+  close(sock_fd);
+
+  printf("Disconnected\n");
 
   return 0;
 }

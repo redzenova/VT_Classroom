@@ -2,14 +2,14 @@ CC=gcc
 CFLAGS=-Wall
 
 # Define the directories for TCP and UDP
-TCP_DIR=TCP
-UDP_DIR=UDP
+TCP_DIR=./TCP
+UDP_DIR=./UDP
 
 # Define the targets for TCP and UDP clients and servers
-TCP_SERVER=$(TCP_DIR)/tcp_server
-TCP_CLIENT=$(TCP_DIR)/tcp_client
-UDP_SERVER=$(UDP_DIR)/udp_server
-UDP_CLIENT=$(UDP_DIR)/udp_client
+TCP_SERVER=ts
+TCP_CLIENT=tc
+UDP_SERVER=us
+UDP_CLIENT=uc
 
 # 'all' target will build both TCP and UDP clients and servers
 all: $(TCP_SERVER) $(TCP_CLIENT) $(UDP_SERVER) $(UDP_CLIENT)
@@ -30,9 +30,9 @@ $(UDP_CLIENT): $(UDP_DIR)/udp_client.c
 
 # 'clean' target to remove compiled binaries
 clean:
-	rm -f $(TCP_DIR)/tcp_client
-	rm -f $(TCP_DIR)/tcp_server
-	rm -f $(UDP_DIR)/udp_client
-	rm -f $(UDP_DIR)/udp_server
+	rm -f $(TCP_SERVER) VISTEC_TCP*
+	rm -f $(TCP_CLIENT) 
+	rm -f $(UDP_SERVER) VISTEC_UDP.txt
+	rm -f $(UDP_CLIENT)
 
 .PHONY: all clean
