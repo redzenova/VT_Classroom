@@ -2,11 +2,18 @@
 
 This repository store about source code and material
 
-## :pushpin: 1/2024
+- 50x : main course
+- 5xx : additional course
 
-:blue_book: Semester 1
+## Year 1 - 2024
+
+:blue_book: <b>Semester 1</b>
 
 - IST 525 Computer Architecture
 - IST 502 Data Structure
 - IST 501 Math Foundation
-- IST 697 Seminar
+
+:pushpin: :blue_book: <b>Semester 2</b>
+
+- IST 511 Computer Network
+- IST 503 Algorithm Design and Analysis
