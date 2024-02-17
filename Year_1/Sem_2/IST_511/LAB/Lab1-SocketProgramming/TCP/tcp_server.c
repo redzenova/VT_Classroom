@@ -51,7 +51,6 @@ int main(int argc, char const* argv[]) {
   server_addr.sin_addr.s_addr = inet_addr(server_ip);
   server_addr.sin_port = htons(server_port);    
 
-  
   /* Bind socket */
   // Bind socket to server's address to setup server's address.
   // bind_res = bind(...);
@@ -94,8 +93,9 @@ int main(int argc, char const* argv[]) {
       printf("Error accepting new connection\n");
       exit(1);
     }
+    
     // Extract client's ip and port to client_ip and client_port
-    inet_ntop(AF_INET, &client_addr.sin_addr, client_ip, sizeof(client_ip)); // Convert IP address from network byte order to presentation format
+    inet_ntop(AF_INET, &client_addr.sin_addr, client_ip, sizeof(client_ip)); // Convert IP address from network byte order to host byte order
     client_port = ntohs(client_addr.sin_port); // Convert port number from network byte order to host byte order
 
     printf("New connection from %s %d\n", client_ip, client_port); // %s and %d are format specifiers for string and integer, respectively.

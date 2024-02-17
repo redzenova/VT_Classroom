@@ -32,7 +32,6 @@ int main(int argc, char const* argv[]) {
   // Use the socket function to create a socket for UDP communication.
   // sock_fd = socket(...);
 
-  // Create a socket for UDP communication
   sock_fd = socket(AF_INET, SOCK_DGRAM, IP_PROTOCOL);
 
   if (sock_fd < 0) {
@@ -45,11 +44,11 @@ int main(int argc, char const* argv[]) {
   // that will be used to identify the server address.
   // Hint: Check server_addr's structure
   // Hint: Host vs network byte order
+  
+  // In network byte order is big endian | host byte order is little endian
   server_addr.sin_family = AF_INET;
-  // htons: host to network short means convert the port number from host byte order to network byte order
-  // byte order 
+  server_addr.sin_addr.s_addr = inet_addr(server_ip); // Convert to network byte order
   server_addr.sin_port = htons(server_port); // Convert to network byte order 
-  server_addr.sin_addr.s_addr = inet_addr(server_ip);
 
 
   /* Open VISTEC.txt */

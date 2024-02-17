@@ -8,7 +8,7 @@
 #include <arpa/inet.h>
 
 #define MAX_LINE_LENGTH 1024
-
+#define IP_PROTOCOL 0
 
 int main(int argc, char const* argv[]) {
   char server_ip[16];
@@ -19,6 +19,7 @@ int main(int argc, char const* argv[]) {
   int conn_status;
   FILE *fptr;
 
+  // Step 1 - Process input arguments
   /* Process input arguments */
   if (argc < 3) {
     printf("Usage: $tcp_client SERVER_IP SERVER_PORT\n");
@@ -31,7 +32,7 @@ int main(int argc, char const* argv[]) {
   // Use the socket function to create a socket for TCP communication.
   // sock_fd = socket(...);
 
-  sock_fd = socket(AF_INET, SOCK_STREAM, 0);
+  sock_fd = socket(AF_INET, SOCK_STREAM, IP_PROTOCOL);
 
   if (sock_fd < 0) {
     printf("Error creatinging socket\n");
@@ -70,7 +71,7 @@ int main(int argc, char const* argv[]) {
 
   /* Send messages through socket using send(...) command */
 
-  printf("Sending file to server\n");
+  printf("Sending file to server...\n");
 
   while (fgets(buffer, MAX_LINE_LENGTH, fptr) != NULL) {
     // send(...);
